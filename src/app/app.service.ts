@@ -7,8 +7,8 @@ import { Configuration } from './app.constants';
 @Injectable()
 export class AppService {
 
-    options: any;
     baseURL: string;
+    options: any;
 
     constructor(private httpClient: HttpClient, private configuration: Configuration) {
         this.baseURL = configuration.baseURL;

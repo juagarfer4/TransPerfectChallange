@@ -25,13 +25,16 @@ export class AppComponent implements OnInit, OnDestroy {
   getIssues() {
     this.appService.getIssues().subscribe(data => {
       for (let i = 0; i < data.length; i++) {
-        const issue: Issue = {
-          id: data[i]['number'],
-          title: data[i]['title'],
-          URL: data[i]['html_url'],
-          created_at: data[i]['created_at']
+        // GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request
+        if (data[i]['pull_request'] === undefined) {
+          const issue: Issue = {
+            id: data[i]['number'],
+            title: data[i]['title'],
+            URL: data[i]['html_url'],
+            created_at: data[i]['created_at']
+          }
+          this.issues.push(issue);
         }
-        this.issues.push(issue);
       }
     })
   }
