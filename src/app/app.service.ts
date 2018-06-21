@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+
+import { Configuration } from './app.constants';
 
 @Injectable()
 export class AppService {
 
-    headers: HttpHeaders;
     options: any;
-    baseURL = 'https://api.github.com';
+    baseURL: string;
 
-    constructor(private httpClient: HttpClient) {
-        this.headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'q=0.8;application/json;q=0.9' });
+    constructor(private httpClient: HttpClient, private configuration: Configuration) {
+        this.baseURL = configuration.baseURL;
     }
 
     // GET

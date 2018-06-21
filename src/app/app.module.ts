@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
+import { Configuration } from './app.constants';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AppService } from './app.service';
     HttpClientModule
   ],
   providers: [
-    AppService
+    AppService,
+    Configuration
   ],
   bootstrap: [AppComponent]
 })

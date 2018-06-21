@@ -1,6 +1,6 @@
 <div>
   <h2>
-    <span class="roboto">Issues</span>
+    <span class="roboto">Angular issues on GitHub</span>
   </h2>
   <div class="row"></div>
   <br/>
@@ -11,17 +11,15 @@
           <th scope="col" class="roboto">#</th>
           <th scope="col" class="roboto">Title</th>
           <th scope="col" class="roboto">URL</th>
-          <th scope="col" class="roboto">State</th>
           <th scope="col" class="roboto">Created at</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let issue of issues">
           <th scope="row" class="roboto">{{issue.id}}</th>
-          <td class="roboto">{{issue.title}}</td>
-          <td class="roboto">{{issue.URL}}</td>
-          <td class="roboto">{{issue.state}}</td>
-          <td class="roboto">{{issue.created_at | date : "MM.dd.yyyy HH:mm"}}</td>
+          <td scope="row" class="roboto">{{issue.title}}</td>
+          <td scope="row" class="roboto"><a href="{{issue.URL}}">Go to issue</a></td>
+          <td scope="row" class="roboto">{{issue.created_at | date : "MM.dd.yyyy HH:mm"}}</td>
         </tr>
     </table>
   </div>

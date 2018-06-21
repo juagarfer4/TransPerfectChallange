@@ -10,7 +10,6 @@ import { Issue } from './app.model';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  title = 'app';
   issues: Issue[];
 
   constructor(public appService: AppService) {
@@ -30,7 +29,6 @@ export class AppComponent implements OnInit, OnDestroy {
           id: data[i]['number'],
           title: data[i]['title'],
           URL: data[i]['html_url'],
-          state: data[i]['state'],
           created_at: data[i]['created_at']
         }
         this.issues.push(issue);
